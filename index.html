@@ -5,11 +5,253 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>哈拿書房</title>
+    <!-- 引入 jQuery 和 Bootstrap 的 JS 檔案 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <!-- 使用font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- body style -->
+    <style>
+        body {
+            background-image: url('./img/bg.jpg');
+            background-color: rgba(255, 255, 255, 0.6);
+            /* 白色，60% 不透明度 */
+            background-blend-mode: overlay;
+            /* 或其他你喜歡的混合模式 */
+        }
+    </style>
+    <!-- header style -->
+    <style>
+        .active-nav-item {
+            background-color: rgba(0, 0, 0, 0.1);
+            /* 淡淡的背景色 */
+            border-bottom: 2px solid blue;
+            /* 底部的線 */
+        }
+
+        .nav-container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .active-nav-item {
+            background-color: rgba(0, 0, 0, 0.1);
+            /* 淡淡的背景色 */
+            border-bottom: 2px solid blue;
+            /* 底部的線 */
+        }
+    </style>
+    <!-- section1 style -->
+    <style>
+        .retro-font {
+            font-family: 'Pacifico', cursive;
+            font-size: 100px;
+            letter-spacing: 40px;
+            /* 字母間距 */
+            word-spacing: 4px;
+            /* 單詞間距 */
+        }
+    </style>
+    <!-- section2 style -->
+    <style>
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            font-size: 32px;
+            border: 4px outset red;
+            border-radius: 1rem;
+            padding: 1rem 2rem 1rem 3rem;
+            letter-spacing: 1rem;
+            font-weight: 900;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px red, 0 0 20px red, 0 0 25px red, 0 0 30px red, 0 0 35px red;
+            }
+
+            100% {
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
+            }
+        }
+
+        .section-title span {
+            animation: glow 1.5s infinite alternate;
+        }
+
+
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+
+
 </head>
 
 <body>
-    test
+    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- 左側：網站名稱和 Logo -->
+            <a id="logo" class="navbar-brand" href="#">
+                <img src="" alt="Logo" id="logo-img" width="30" height="30">
+            </a>
+
+            <!-- 中間：導覽列 -->
+            <div class="container nav-container">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul id="menu" class="navbar-nav">
+                    </ul>
+                </div>
+            </div>
+            <!-- 右側：搜尋欄位和 Login 按鈕 -->
+            <form class="d-flex">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="搜尋" aria-label="Search">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+                <!-- <button class="btn btn-outline-success" type="submit">搜尋</button> -->
+                <button class="btn btn-outline-primary ms-2" type="button">Login</button>
+            </form>
+        </div>
+
+    </nav>
+
+    <!-- 第一個區塊和標題 -->
+    <section id="section1" class="text-center py-5">
+        <h1 id="section1-title" class="retro-font"></h1>
+    </section>
+    <!-- 第二個區塊 -->
+    <div id="section2" class="container my-5">
+        <!-- 內容將動態生成 -->
+    </div>
+
+
 </body>
+
+<script>
+    const header_info = {
+        logo_url: "./img/logo2.png", // 這裡是你 Logo 的 URL
+        web_title: "哈拿書坊",
+        menu: [
+            { title: "首頁", link: "" },
+            { title: "最新活動", link: "" },
+            { title: "商品", link: "" },
+            { title: "圖書資訊", link: "" },
+            { title: "雙連SL", link: "" }
+        ]
+    };
+    // header_info
+    $(document).ready(function () {
+
+        // 設置 Logo 和網站名稱
+        $('#logo').attr('href', header_info.web_title);
+        $('#logo').append(header_info.web_title);
+        $('#logo-img').attr('src', header_info.logo_url);
+
+        // 設置導覽列
+        // header_info.menu.forEach(function (item) {
+        //     $('#menu').append(`
+        //         <li class="nav-item">
+        //             <a class="nav-link" href="${item.link}">${item.title}</a>
+        //         </li>`
+        //     );
+        // });
+
+        header_info.menu.forEach(function (item, index) {
+            const navItem = $(`
+            <li class="nav-item">
+                <a class="nav-link" href="${item.link}">${item.title}</a>
+            </li>
+            `);
+
+            // 如果點選，則設置 active 類別
+            navItem.click(function (e) {
+                e.preventDefault(); // 阻止預設動作
+                $('.nav-item').removeClass('active-nav-item'); // 移除所有 active 類別
+                $(this).addClass('active-nav-item'); // 僅為點擊的項目添加 active 類別
+            });
+
+            $('#menu').append(navItem);
+        });
+
+
+    });
+
+    // section1
+    const section1 = { title: "哈拿書坊" }
+    $(document).ready(function () {
+        // 設置第一個區塊的標題
+        $('#section1-title').text(section1.title);
+    });
+
+    // section2
+    const section2 = [
+        {
+            title: "精選活動",
+            cards: [
+                { card_title: "徵稿活動", img: "./img/s2-1-1.png" },
+                { card_title: "本月主題閱讀", img: "./img/s2-1-2.png" },
+                { card_title: "樂讀聖經", img: "./img/s2-1-3.png" },
+            ]
+        },
+        {
+            title: "圖書資訊",
+            cards: [
+                { card_title: "商品周邊", img: "./img/s2-2-1.png" },
+                { card_title: "好書推薦", img: "./img/s2-2-2.png" },
+                { card_title: "書目查詢", img: "./img/s2-2-3.png" },
+            ]
+        },
+        {
+            title: "關於雙連",
+            cards: [
+                { card_title: "徵稿活動", img: "./img/s2-1-1.png" },
+                { card_title: "本月主題閱讀", img: "./img/s2-1-2.png" },
+                { card_title: "樂讀聖經", img: "./img/s2-1-3.png" },
+            ]
+        },
+    ]
+    $(document).ready(function () {
+        section2.forEach((section) => {
+            let sectionHTML = `<div class='section-container my-5'>
+      <div class='section-title'><span>${section.title}</span></div>
+      <div class='row'>`;
+
+            section.cards.forEach((card) => {
+                sectionHTML += `
+      <div class='col-md-4'>
+        <div class='card'>
+          <img src='${card.img}' class='card-img-top' alt='${card.card_title}' />
+          <div class='card-body'>
+            <h5 class='card-title'>${card.card_title}</h5>
+          </div>
+        </div>
+      </div>`;
+            });
+
+            sectionHTML += `</div></div>`;
+            $("#section2").append(sectionHTML);
+        });
+    });
+
+</script>
 
 </html>
